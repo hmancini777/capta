@@ -1,0 +1,11 @@
+# Segredos: o token do Telegram nunca vai para o GitHub
+.env
+
+# Banco e logs reais (têm dados de leads de verdade)
+dados/
+*.sqlite
+*.log
+
+# Python
+__pycache__/
+*.pyc

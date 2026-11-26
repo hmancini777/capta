@@ -1,0 +1,54 @@
+[
+ {
+  "nome": "Dra. Camila Rocha",
+  "instagram": "dra.camila.exemplo",
+  "whatsapp": "11 90000-0001",
+  "bairro": "Moema",
+  "fonte": "maps+instagram",
+  "seguidores": 3200,
+  "pontos": 8,
+  "sinais": "3 Reels em outubro com legenda automática; o de clareamento tem 2,1 mil views com 3,2 mil seguidores; Maps 4,9 com 180 avaliações.",
+  "mensagem": {
+   "canal": "instagram",
+   "texto": "Boa tarde, Dra. Camila, tudo certo? Me chamo Henrique e trabalho com vídeo e estratégia de Instagram para profissionais de saúde. Vi seu Reel sobre clareamento e o tema é ótimo, do tipo que o paciente pesquisa antes de marcar. Fiz uma análise rápida do seu perfil, com 3 pontos que seguram paciente novo e 3 ideias de vídeo. Posso te mandar?",
+   "contexto": "Reel citado: clareamento (out/2026, 2,1 mil views). Escolhido por ter o tema que mais puxa avaliação."
+  }
+ },
+ {
+  "nome": "Dr. Rafael Lima",
+  "instagram": "dr.rafael.exemplo",
+  "bairro": "Pinheiros",
+  "fonte": "maps+instagram",
+  "seguidores": 1800,
+  "pontos": 7,
+  "sinais": "Implantes; posta 1 Reel por semana, sempre começando pelo logo; Maps 4,8 com 95 avaliações.",
+  "mensagem": {
+   "canal": "instagram",
+   "texto": "Boa tarde, Dr. Rafael, tudo certo? Me chamo Henrique e trabalho com vídeo e estratégia de Instagram para profissionais de saúde. Gostei do seu Reel explicando quanto tempo dura um implante, porque responde a dúvida que todo paciente tem. Fiz uma análise rápida do seu perfil, com 3 pontos que seguram paciente novo e 3 ideias de vídeo. Posso te mandar?",
+   "contexto": "Reel citado: quanto dura um implante (nov/2026, 900 views)."
+  }
+ },
+ {
+  "nome": "Clínica Sorriso Exemplo",
+  "instagram": "clinica.sorriso.exemplo",
+  "bairro": "Tatuapé",
+  "fonte": "maps+instagram",
+  "seguidores": 5400,
+  "pontos": 6,
+  "sinais": "Harmonização; 2 Reels no mês, só arte e música, sem rosto; Maps 4,7 com 60 avaliações.",
+  "mensagem": {
+   "canal": "instagram",
+   "texto": "Boa tarde, tudo certo? Me chamo Henrique e trabalho com vídeo e estratégia de Instagram para profissionais de saúde. Vi os Reels de harmonização de vocês e o resultado dos casos chama atenção. Fiz uma análise rápida do perfil, com 3 pontos que seguram paciente novo e 3 ideias de vídeo. Posso mandar?",
+   "contexto": "Reel citado: caso de harmonização (out/2026, 1,4 mil views)."
+  }
+ },
+ {
+  "nome": "Dra. Camila Rocha (de novo)",
+  "instagram": "@Dra.Camila.Exemplo",
+  "bairro": "Moema",
+  "fonte": "instagram",
+  "pontos": 8,
+  "sinais": "Mesma pessoa do primeiro lead, achada por outro caminho. O CRM tem que pular.",
+  "mensagem": {"canal": "instagram", "texto": "Mensagem que nunca deve sair."}
+ }
+]
