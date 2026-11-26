@@ -4,9 +4,10 @@
 |---|---|
 | **Agente** | Um modelo de IA que recebe um objetivo, regras e ferramentas, e executa a tarefa inteira sozinho, decidindo os passos. |
 | **Orquestrador** | O agente que coordena os outros: divide o trabalho, junta os resultados e entrega. |
-| **Subagente** | Um agente chamado por outro para uma parte da tarefa (aqui, o Pesquisador). |
-| **Prompt** | O texto de instruções que o agente recebe. Os prompts do Capta estão em `agentes/`. |
-| **Automação** | Código que executa uma regra fixa, sem IA. Ex.: "Enviei agenda o follow-up para daqui a 3 dias". |
+| **Prompt** | O texto de instruções que o agente recebe. Os prompts do Capta estão em `.claude/agents/` e `automacao/`. |
+| **Skill** | Um pacote de instruções e materiais de referência que o Claude carrega quando a tarefa pede. A do Capta é `.claude/skills/capta-prospeccao/`. |
+| **Subagente** | No Claude Code, um agente com prompt, modelo e ferramentas próprios, definido num arquivo em `.claude/agents/`. O orquestrador chama pelo nome. |
+| **Automação** | Algo que roda sozinho, sem alguém mandar. No Capta são dois tipos: o Claude acordado por horário (tarefas agendadas) e código com regra fixa, sem IA (ex.: "Enviei agenda o follow-up para daqui a 3 dias"). |
 | **Tarefa agendada / cron** | Um programa que roda sozinho num horário. `0 11 * * 1-5` = 11h, de segunda a sexta. |
 | **Lead** | Um potencial cliente. Aqui, um dentista ou clínica que se encaixa nos critérios. |
 | **Qualificar** | Conferir se o lead vale a pena, com critérios objetivos e uma nota. |

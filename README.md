@@ -9,6 +9,18 @@ automação e um humano no controle de tudo que sai.
 
 ---
 
+## Entrega: Skill, Agente e Automação, feitos com o Claude
+
+| Requisito | O que é no Capta | Onde ver |
+|---|---|---|
+| **1. Skill** | `capta-prospeccao`: ensina o Claude a qualificar leads, escrever a abordagem, os follow-ups, as respostas e o diagnóstico grátis, sempre no estilo do estúdio. Aprende com cada correção do operador. | [`.claude/skills/capta-prospeccao/SKILL.md`](.claude/skills/capta-prospeccao/SKILL.md) |
+| **2. Agente** | Um orquestrador e três subagentes do Claude Code com papéis separados: **pesquisador** (acha e dá nota aos leads), **atendente** (responde quem voltou) e **revisor** (confere cada texto antes de virar card). | [`automacao/captacao-11h.md`](automacao/captacao-11h.md) e [`.claude/agents/`](.claude/agents/) |
+| **3. Automação** | O Claude acorda sozinho às 11h e às 17h (`claude -p` agendado no sistema), e um bot do Telegram cuida do resto sem IA: manda o lote ao meio-dia, agenda e cancela follow-ups e barra contato duplicado. | [`automacao/`](automacao/) e [`capta/`](capta/) |
+
+Explicação de cada parte: [a skill e os agentes](docs/02-agentes.md) · [a automação](docs/03-automacao.md) · [teste com o Claude de verdade](docs/teste-com-claude.md).
+
+---
+
 ## O problema
 
 Um estúdio pequeno precisa achar clientes, mas prospectar toma o dia: pesquisar
@@ -68,9 +80,11 @@ Para conferir que a lógica está certa: `python -m unittest discover testes`.
 
 | Pasta | O que é | Tem IA? |
 |---|---|---|
-| [`agentes/`](agentes/) | Os prompts de cada agente: o que faz, quando roda, o que recebe e o que devolve. | Sim |
-| [`regras/`](regras/) | O "manual" que os agentes leem: quem é um bom lead, como escrever, preços, formato do diagnóstico. | É lido pela IA |
-| [`capta/`](capta/) | O código: banco de dados, CRM e bot do Telegram. | Não |
+| [`.claude/skills/capta-prospeccao/`](.claude/skills/capta-prospeccao/) | **A skill.** Instruções e referências: quem é um bom lead, como escrever, preços, formato do diagnóstico. | É lida pela IA |
+| [`.claude/agents/`](.claude/agents/) | **Os subagentes:** pesquisador, atendente e revisor. | Sim |
+| [`automacao/`](automacao/) | **A automação com Claude:** os prompts das rodadas das 11h e das 17h e os scripts que acordam o Claude no horário. | Sim |
+| [`capta/`](capta/) | **A automação sem IA:** banco de dados, CRM e bot do Telegram. | Não |
+| [`.claude/settings.json`](.claude/settings.json) | O que o Claude pode fazer sozinho nas rodadas agendadas (e o que não pode). | — |
 | [`demo/`](demo/) | Demonstração completa com leads fictícios. | Simulada |
 | [`testes/`](testes/) | Testes automáticos do fluxo. | Não |
 | [`docs/`](docs/) | A explicação de cada parte, em ordem de leitura. | — |
@@ -78,7 +92,7 @@ Para conferir que a lógica está certa: `python -m unittest discover testes`.
 ## Leia nesta ordem
 
 1. [Visão geral](docs/01-visao-geral.md): o problema, a solução e por que o humano fica no meio.
-2. [Os agentes](docs/02-agentes.md): quem faz o quê, e por que são separados.
+2. [A skill e os agentes](docs/02-agentes.md): quem faz o quê, e por que são separados.
 3. [A automação](docs/03-automacao.md): o que roda sozinho, quando e sem IA.
 4. [Os dados](docs/04-dados.md): o banco, o funil e o caminho de um lead.
 5. [Ética e limites](docs/05-etica-e-limites.md): o que o sistema não faz, de propósito.
@@ -89,7 +103,9 @@ Para conferir que a lógica está certa: `python -m unittest discover testes`.
 
 | | |
 |---|---|
-| Agentes de IA | 3 (Orquestrador, Pesquisador, Atendente) + revisão humana |
+| Skill | 1 (`capta-prospeccao`), com 4 referências |
+| Agentes de IA | 1 orquestrador + 3 subagentes (pesquisador, atendente, revisor) + revisão humana |
+| Automações | 2 rodadas do Claude agendadas (11h e 17h) + bot sem IA (lote, follow-ups, duplicados) |
 | Mensagens novas por dia | até 15 |
 | Follow-ups | 2, no 3º e no 7º dia, cancelados sozinhos se o lead responder |
 | Mensagens enviadas sem aprovação humana | 0 |

@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python capta/crm.py:*)",
+      "Read",
+      "Edit(dados/**)",
+      "Edit(.claude/skills/capta-prospeccao/referencias/estilo-escrita.md)"
+    ],
+    "deny": [
+      "Edit(capta/**)",
+      "Edit(.env)",
+      "Read(.env)"
+    ]
+  }
+}

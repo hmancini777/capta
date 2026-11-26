@@ -1,14 +1,22 @@
 # 3. A automação
 
-Automação aqui é tudo que segue **regra fixa** e por isso não precisa de IA.
-Está em [`capta/bot.py`](../capta/bot.py) e [`capta/crm.py`](../capta/crm.py),
-em Python puro, sem nenhuma biblioteca externa.
+Automação é tudo que roda sozinho, sem alguém mandar. O Capta tem dois tipos:
+
+| Tipo | O que é | Onde |
+|---|---|---|
+| **Claude agendado** | O agendador do sistema (Agendador de Tarefas no Windows, cron no Linux/Mac) acorda o Claude Code no horário. O Claude roda o prompt da tarefa sem ninguém na frente do computador (`claude -p`), usa a skill e chama os subagentes. | [`automacao/`](../automacao/) |
+| **Regra fixa, sem IA** | Código Python que reage aos botões e ao relógio: agenda follow-up, cancela follow-up, limita o lote, barra duplicado. | [`capta/bot.py`](../capta/bot.py) e [`capta/crm.py`](../capta/crm.py), em Python puro, sem nenhuma biblioteca externa |
+
+O que cada tarefa agendada pode fazer sem pedir permissão está em
+[`.claude/settings.json`](../.claude/settings.json): rodar `crm.py`, ler arquivos e
+escrever só em `dados/` e no `estilo-escrita.md` da skill. Ela não pode mexer no
+código nem ler o `.env` com o token.
 
 ## O que roda sozinho
 
 | Gatilho | O que acontece | Onde no código |
 |---|---|---|
-| Dia útil, 11h | Tarefa agendada acorda o Agente Orquestrador | `agentes/orquestrador-11h.md` (cron `0 11 * * 1-5`) |
+| Dia útil, 11h | Tarefa agendada acorda o Agente Orquestrador | [`automacao/captacao-11h.md`](../automacao/captacao-11h.md) via `rodar.ps1` (cron `0 11 * * 1-5`) |
 | Dia útil, entre 12h e 18h, uma vez | Bot manda o lote de cards | `bot.relogio()` → `crm.lote()` |
 | Botão "Enviei" na 1ª mensagem | Lead vira "enviado"; follow-up 1 agendado para daqui a 3 dias | `bot.sincronizar()`, tabela `SEGUINTE` |
 | Botão "Enviei" no follow-up 1 | Follow-up 2 agendado para mais 4 dias (7º dia) | `bot.sincronizar()` |
@@ -17,7 +25,7 @@ em Python puro, sem nenhuma biblioteca externa.
 | Resposta a um card com texto | A nota é salva e a mensagem volta para reescrita | `bot.tratar_mensagem()` |
 | Texto solto no chat | Vira "recado" para o agente ler na próxima rodada | `bot.tratar_mensagem()` |
 | Lead novo com @ que já existe | Recusado, nunca recebe 2ª abordagem | `crm.novos_leads()` |
-| Seg a sáb, 17h | Tarefa agendada acorda o Agente Atendente | `agentes/atendente-17h.md` |
+| Seg a sáb, 17h | Tarefa agendada acorda o Agente Atendente | [`automacao/respostas-17h.md`](../automacao/respostas-17h.md) via `rodar.ps1` |
 
 ## Os cards
 

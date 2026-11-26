@@ -32,21 +32,40 @@ python capta/bot.py rodar    # liga o bot (deixe rodando)
 
 No Windows, para rodar sem janela: `pythonw capta/bot.py rodar`.
 
-## 3. Agendar os agentes
+## 3. Conferir a skill e os agentes
 
-No Claude Code, crie duas tarefas agendadas:
+Abra o Claude Code na pasta do projeto (`claude`) e aceite a pergunta de confiar na
+pasta. Sem isso, as rodadas agendadas ignoram as permissões de `.claude/settings.json`.
+O Claude Code acha sozinho a skill
+`capta-prospeccao` e os subagentes em `.claude/`. Para conferir, digite `/agents`: os
+três (`capta-pesquisador`, `capta-atendente`, `capta-revisor`) devem aparecer.
 
-| Tarefa | Horário (cron) | Prompt |
-|---|---|---|
-| Captação 11h | `0 11 * * 1-5` | conteúdo de `agentes/orquestrador-11h.md` |
-| Respostas 17h | `0 17 * * 1-6` | conteúdo de `agentes/atendente-17h.md` |
+Para usar a skill no Claude.ai em vez do Claude Code, compacte a pasta
+`.claude/skills/capta-prospeccao/` num `.zip` e envie na área de Skills das configurações.
 
-Rode a primeira à mão uma vez para conferir que ela acha o `crm.py` e grava leads.
+O pesquisador usa o navegador. Para ele abrir o Maps e o Instagram, o Claude Code
+precisa de uma ferramenta de navegador conectada (por exemplo, a extensão Claude in Chrome).
 
-## 4. Primeiros dias
+## 4. Agendar os agentes
+
+| Tarefa | Horário | Prompt | Comando |
+|---|---|---|---|
+| Captação | dias úteis, 11h | [`automacao/captacao-11h.md`](../automacao/captacao-11h.md) | `automacao/rodar.ps1 captacao-11h` |
+| Respostas | seg a sáb, 17h | [`automacao/respostas-17h.md`](../automacao/respostas-17h.md) | `automacao/rodar.ps1 respostas-17h` |
+
+No Windows, registre no Agendador de Tarefas (os comandos `schtasks` estão no topo de
+`rodar.ps1`). No Linux ou Mac, use o cron (as linhas estão no topo de `rodar.sh`).
+
+Antes de agendar, rode uma vez à mão e confira o resultado em `dados/automacao.log`:
+
+```bash
+powershell -File automacao/rodar.ps1 captacao-11h
+```
+
+## 5. Primeiros dias
 
 1. Deixe o modo em `revisao` (o padrão). Leia cada card e use **Ajustar** sem dó:
-   cada nota vira regra em `regras/estilo-escrita.md`.
+   cada nota vira regra no `estilo-escrita.md` da skill.
 2. Quando os textos estiverem do seu jeito, mande `/modo envio`.
 3. Envie, aperte **Enviei**, e use `/resp @usuario <texto>` sempre que alguém responder.
 4. Para ver o funil: `/status` no Telegram ou `python capta/crm.py resumo`.

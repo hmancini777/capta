@@ -8,7 +8,7 @@ O QUE ELE FAZ
   - Em dia útil, a partir das 12h, manda sozinho o lote de mensagens do dia.
 
 O QUE ELE NÃO FAZ
-  - Não chama IA. Quem pesquisa e escreve são os agentes (pasta agentes/).
+  - Não chama IA. Quem pesquisa e escreve são os agentes de IA (.claude/agents/ e automacao/).
     O bot é só automação: regras fixas, sem "inteligência".
   - Não envia nada para lead. Quem envia é o humano, copiando o texto do card.
 

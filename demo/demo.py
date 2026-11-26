@@ -68,7 +68,7 @@ mudar_dia(DIA_1)
 # ---------------------------------------------------------------------------
 etapa(1, "Agente Pesquisador + Agente Redator (11h)", """
 No sistema real, às 11h de cada dia útil um agente de IA pesquisa clínicas no
-Google Maps e no Instagram, aplica os critérios de regras/criterios-lead.md,
+Google Maps e no Instagram, aplica os critérios da skill capta-prospeccao,
 dá uma nota de 0 a 10 e escreve a 1ª mensagem de cada lead aprovado.
 Aqui, esse trabalho vem pronto de demo/leads-exemplo.json.
 Repare que o 4º lead é a mesma pessoa do 1º: o CRM recusa contato duplicado.
@@ -113,7 +113,7 @@ funil(con)
 etapa(4, "Aprendizado: o agente reescreve com a nota do humano", """
 Na rodada seguinte, o agente recebe a lista "ajustar" de crm.py pendentes,
 com a nota do operador. Ele reescreve a mensagem e grava a nota em
-regras/estilo-escrita.md, para não repetir o erro com os próximos leads.
+estilo-escrita.md (dentro da skill), para não repetir o erro com os próximos leads.
 """)
 p = crm.pendentes(con)
 for a in p["ajustar"]:
@@ -175,7 +175,7 @@ for lead in crm.pendentes(con)["respostas"]:
     crm.gravar_mensagem(con, lead["lead_id"], "diagnostico", "instagram",
                         "Dra. Camila, fiz o diagnóstico do seu perfil. São 3 pontos que mais estão segurando "
                         "paciente hoje: 1) ... 2) ... 3) ... E aqui vão 3 roteiros prontos para gravar no "
-                        "celular. (formato completo em regras/diagnostico.md)")
+                        "celular. (formato completo em referencias/diagnostico.md da skill)")
     con.commit()
     print("  [AGENTE] escreveu a resposta e o diagnóstico (3 travas + 3 roteiros)")
 crm.mandar_conversa(con)

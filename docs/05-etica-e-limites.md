@@ -14,8 +14,8 @@ nos prompts, não só neste texto.
 | Nunca contata a mesma pessoa duas vezes | Respeito a quem não respondeu | `instagram UNIQUE` no banco e checagem em `novos_leads()` |
 | Para depois de 2 follow-ups | Insistir mais vira incômodo | `bot.SEGUINTE` não tem passo depois do `fu2` |
 | Cancela follow-up se o lead respondeu | Ninguém recebe "e aí, viu minha mensagem?" depois de já ter respondido | `crm.registrar_resposta()` |
-| Não promete resultado nem número de seguidores | Seria propaganda enganosa | `regras/estilo-escrita.md` |
-| Não inventa preço ou condição | O agente só usa a tabela de `regras/ofertas.md`; dúvida vai para o humano | Prompt do Atendente |
+| Não promete resultado nem número de seguidores | Seria propaganda enganosa | `estilo-escrita.md` (skill) |
+| Não inventa preço ou condição | O agente só usa a tabela de `ofertas.md` (skill); dúvida vai para o humano | Prompt do Atendente |
 | Não convida ninguém para evento na agenda | Convite manda e-mail para fora sem aprovação | Prompt do Atendente |
 
 ## Dados pessoais (LGPD)
@@ -34,7 +34,7 @@ nos prompts, não só neste texto.
 
 Os roteiros que o sistema sugere aos dentistas seguem o Código de Ética da
 Odontologia (CFO): sem preço, sem "avaliação grátis" como chamariz, sem promessa
-de resultado, sem antes e depois sem autorização. Ver `regras/diagnostico.md`.
+de resultado, sem antes e depois sem autorização. Ver `diagnostico.md` na skill.
 
 ## Limites técnicos honestos
 

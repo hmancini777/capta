@@ -20,7 +20,7 @@ acredita em vídeo e só falta acabamento e estratégia.
 
 1. **Inteligência (agentes de IA).** O que exige julgamento: decidir se um perfil
    vale a pena, entender um Reel, escrever uma mensagem que soa pessoal, responder
-   uma dúvida. Está em [`agentes/`](../agentes/) e lê [`regras/`](../regras/).
+   uma dúvida. Está em [`.claude/agents/`](../.claude/agents/) e [`automacao/`](../automacao/), e usa a skill [`capta-prospeccao`](../.claude/skills/capta-prospeccao/SKILL.md).
 2. **Automação (código sem IA).** O que é regra fixa: não contatar a mesma pessoa
    duas vezes, mandar no máximo 15 mensagens novas por dia, agendar o follow-up no
    3º dia, cancelar o follow-up se o lead respondeu. Está em [`capta/`](../capta/).
@@ -42,7 +42,7 @@ banco e manda o lote no horário. Por isso ele é barato, rápido e nunca "inven
 ## Por que o humano fica no meio
 
 - **Qualidade:** a IA erra o tom de vez em quando. Um card ruim descartado não custa nada; uma mensagem ruim enviada queima o lead.
-- **Aprendizado:** cada "Ajustar" vira uma regra escrita em `regras/estilo-escrita.md`. Com o tempo, a IA erra menos.
+- **Aprendizado:** cada "Ajustar" vira uma regra escrita no `estilo-escrita.md` da skill. Com o tempo, a IA erra menos.
 - **Risco:** envio automático em massa é spam, pode bloquear a conta e não respeita quem recebe.
 - **Responsabilidade:** quem fala com o cliente é uma pessoa, com o nome dela.
 

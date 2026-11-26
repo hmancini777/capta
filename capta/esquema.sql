@@ -47,7 +47,7 @@ CREATE TABLE IF NOT EXISTS leads (
   fonte         TEXT,                            -- onde foi achado: maps, instagram, indicacao, inbound
   sinais        TEXT,                            -- por que é um bom lead, com dado concreto
   seguidores    INTEGER,
-  pontos        INTEGER,                         -- nota de 0 a 10 (regras/criterios-lead.md)
+  pontos        INTEGER,                         -- nota de 0 a 10 (skill capta-prospeccao, referencias/criterios-lead.md)
   estagio       TEXT NOT NULL DEFAULT 'novo',    -- novo, qualificado, rascunho, enviado, respondeu,
                                                  -- diagnostico, reuniao, cliente, perdido, descartado
   proximo_passo TEXT,                            -- fu1, fu2, responder, reedicao, reuniao

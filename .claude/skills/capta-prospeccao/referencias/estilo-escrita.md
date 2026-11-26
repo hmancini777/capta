@@ -21,7 +21,7 @@ correção que aparece duas vezes sobe para as Regras.
 - Sem jargão de marketing (funil, engajamento, autoridade, algoritmo). A conversa é sobre paciente, agenda e WhatsApp.
 - Nunca criticar colegas do lead nem a edição dele de forma direta. Elogiar o tema e mostrar o que dá para ganhar.
 - Nunca prometer número de seguidores ou resultado no 1º mês. A promessa é só o que o estúdio controla (perfil ajustado e vídeos no ar).
-- Antes de o card sair, passar o texto pelo checklist de `agentes/revisor.md`.
+- Antes de o card sair, passar o texto pelo subagente `capta-revisor` (`.claude/agents/capta-revisor.md`).
 
 ## Correções do operador
 
